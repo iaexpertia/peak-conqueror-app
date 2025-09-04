@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { Link, useLocation } from "react-router-dom"
 import { 
   Home, 
   Mountain, 
@@ -17,6 +18,7 @@ interface NavigationProps {
 
 export function Navigation({ className }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
+  const location = useLocation()
 
   const navigationItems = [
     { icon: Home, label: "Dashboard", href: "/" },
@@ -45,12 +47,15 @@ export function Navigation({ className }: NavigationProps) {
             {navigationItems.map((item) => (
               <Button
                 key={item.label}
-                variant="ghost"
+                variant={location.pathname === item.href ? "secondary" : "ghost"}
                 size="sm"
                 className="flex items-center space-x-2 px-4"
+                asChild
               >
-                <item.icon className="w-4 h-4" />
-                <span>{item.label}</span>
+                <Link to={item.href}>
+                  <item.icon className="w-4 h-4" />
+                  <span>{item.label}</span>
+                </Link>
               </Button>
             ))}
           </div>
@@ -78,13 +83,16 @@ export function Navigation({ className }: NavigationProps) {
               {navigationItems.map((item) => (
                 <Button
                   key={item.label}
-                  variant="ghost"
+                  variant={location.pathname === item.href ? "secondary" : "ghost"}
                   size="sm"
                   className="w-full justify-start flex items-center space-x-2 px-4"
                   onClick={() => setIsMobileMenuOpen(false)}
+                  asChild
                 >
-                  <item.icon className="w-4 h-4" />
-                  <span>{item.label}</span>
+                  <Link to={item.href}>
+                    <item.icon className="w-4 h-4" />
+                    <span>{item.label}</span>
+                  </Link>
                 </Button>
               ))}
             </div>
