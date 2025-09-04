@@ -32,7 +32,7 @@ const Index = () => {
       averageGradient: 7.4,
       maxGradient: 12,
       image: colTourmalet,
-      difficulty: "legendary" as const,
+      difficulty: "hc" as const,
       conquered: true,
       lastConquest: "15 Jul 2024",
       famousWinner: {
@@ -49,7 +49,7 @@ const Index = () => {
       averageGradient: 8.1,
       maxGradient: 13,
       image: alpeDhuez,
-      difficulty: "legendary" as const,
+      difficulty: "hc" as const,
       conquered: false,
       famousWinner: {
         name: "Jonas Vingegaard",
@@ -65,7 +65,7 @@ const Index = () => {
       averageGradient: 7.4,
       maxGradient: 14,
       image: stelvioPass,
-      difficulty: "legendary" as const,
+      difficulty: "hc" as const,
       conquered: false,
       famousWinner: {
         name: "Egan Bernal",
@@ -92,7 +92,7 @@ const Index = () => {
         
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <div className="space-y-6 animate-fade-in">
-            <Badge variant="legendary" className="mb-4">
+            <Badge variant="hc" className="mb-4">
               ¡Bienvenido a CyclePeaks!
             </Badge>
             
@@ -126,7 +126,7 @@ const Index = () => {
         <section className="animate-slide-up">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold">Tu Progreso</h2>
-            <Badge variant="epic">Temporada 2024</Badge>
+            <Badge variant="primera">Temporada 2024</Badge>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">

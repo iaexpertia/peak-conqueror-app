@@ -16,8 +16,10 @@ const badgeVariants = cva(
         outline: "text-foreground",
         conquest: "border-transparent bg-success text-success-foreground hover:bg-success/80 glow-primary",
         pending: "border-transparent bg-muted text-muted-foreground hover:bg-muted/80",
-        legendary: "gradient-hero text-primary-foreground font-bold animate-glow",
-        epic: "gradient-alpine text-accent-foreground font-semibold",
+        hc: "gradient-hero text-primary-foreground font-bold animate-glow",
+        primera: "gradient-alpine text-accent-foreground font-semibold",
+        segunda: "border-transparent bg-warning text-warning-foreground hover:bg-warning/80",
+        tercera: "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
       },
     },
     defaultVariants: {

@@ -12,7 +12,7 @@ interface MountainCardProps extends React.HTMLAttributes<HTMLDivElement> {
   averageGradient: number
   maxGradient: number
   image: string
-  difficulty: "beginner" | "intermediate" | "advanced" | "legendary"
+  difficulty: "hc" | "primera" | "segunda" | "tercera"
   conquered?: boolean
   lastConquest?: string
   famousWinner?: {
@@ -23,10 +23,10 @@ interface MountainCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const difficultyConfig = {
-  beginner: { color: "secondary", label: "Principiante" },
-  intermediate: { color: "pending", label: "Intermedio" },
-  advanced: { color: "epic", label: "Avanzado" },
-  legendary: { color: "legendary", label: "Legendario" }
+  hc: { color: "hc", label: "HC" },
+  primera: { color: "primera", label: "1ª Cat." },
+  segunda: { color: "segunda", label: "2ª Cat." },
+  tercera: { color: "tercera", label: "3ª Cat." }
 }
 
 export function MountainCard({
