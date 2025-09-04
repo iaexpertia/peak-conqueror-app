@@ -22,6 +22,11 @@ import alpeDhuez from "@/assets/alpe-dhuez.jpg"
 import stelvioPass from "@/assets/stelvio-pass.jpg"
 
 const Index = () => {
+  const handleConquestToggle = (mountainName: string, isConquered: boolean) => {
+    console.log(`${mountainName} ${isConquered ? 'conquistado' : 'desconquistado'}`)
+    // Aquí se podría implementar la lógica para actualizar el backend
+  }
+
   // Mock data for featured mountains
   const featuredMountains = [
     {
@@ -179,6 +184,7 @@ const Index = () => {
               <MountainCard
                 key={mountain.name}
                 {...mountain}
+                onConquestToggle={handleConquestToggle}
                 className={`animate-scale-in`}
                 style={{ animationDelay: `${index * 0.1}s` } as React.CSSProperties}
               />

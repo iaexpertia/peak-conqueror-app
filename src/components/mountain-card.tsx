@@ -20,6 +20,7 @@ interface MountainCardProps extends React.HTMLAttributes<HTMLDivElement> {
     year: number
     race: string
   }
+  onConquestToggle?: (name: string, isConquered: boolean) => void
 }
 
 const difficultyConfig = {
@@ -41,10 +42,18 @@ export function MountainCard({
   conquered = false,
   lastConquest,
   famousWinner,
+  onConquestToggle,
   className,
   ...props
 }: MountainCardProps) {
   const difficultyStyle = difficultyConfig[difficulty]
+  const [isConquered, setIsConquered] = React.useState(conquered)
+
+  const handleToggleConquest = () => {
+    const newConqueredState = !isConquered
+    setIsConquered(newConqueredState)
+    onConquestToggle?.(name, newConqueredState)
+  }
 
   return (
     <div 
@@ -65,8 +74,8 @@ export function MountainCard({
         
         {/* Conquest Status */}
         <div className="absolute top-4 right-4">
-          <Badge variant={conquered ? "conquest" : "pending"}>
-            {conquered ? "Conquistado" : "Pendiente"}
+          <Badge variant={isConquered ? "conquest" : "pending"}>
+            {isConquered ? "Conquistado" : "Pendiente"}
           </Badge>
         </div>
         
@@ -133,7 +142,7 @@ export function MountainCard({
         )}
         
         {/* Last Conquest */}
-        {conquered && lastConquest && (
+        {isConquered && lastConquest && (
           <div className="flex items-center text-sm text-success">
             <Calendar className="w-4 h-4 mr-1" />
             Conquistado el {lastConquest}
@@ -143,9 +152,10 @@ export function MountainCard({
         {/* Action Button */}
         <Button 
           className="w-full" 
-          variant={conquered ? "secondary" : "default"}
+          variant={isConquered ? "secondary" : "default"}
+          onClick={handleToggleConquest}
         >
-          {conquered ? "Ver Conquista" : "Planear Ascenso"}
+          {isConquered ? "Desconquistar" : "Marcar como Conquistado"}
         </Button>
       </div>
     </div>
